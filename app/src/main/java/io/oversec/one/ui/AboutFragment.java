@@ -7,14 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import io.oversec.one.BuildConfig;
-import io.oversec.one.R;
-
 import org.markdown4j.Markdown4jProcessor;
 import org.sufficientlysecure.htmltextview.HtmlAssetsImageGetter;
 import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import java.io.IOException;
+
+import io.oversec.one.BuildConfig;
+import io.oversec.one.R;
 
 public class AboutFragment extends Fragment {
 

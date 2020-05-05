@@ -17,12 +17,19 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import io.oversec.one.Core;
+import io.oversec.one.R;
 import io.oversec.one.common.CoreContract;
 import io.oversec.one.crypto.AbstractEncryptionParams;
 import io.oversec.one.crypto.EncryptionMethod;
 import io.oversec.one.crypto.Help;
-import io.oversec.one.R;
 import io.oversec.one.crypto.encoding.XCoderAndPadder;
 import io.oversec.one.crypto.encoding.pad.XCoderAndPadderFactory;
 import io.oversec.one.crypto.sym.SymUtil;
@@ -36,8 +43,6 @@ import io.oversec.one.crypto.ui.util.SimpleDividerItemDecoration;
 import io.oversec.one.crypto.ui.util.StandaloneTooltipView;
 import io.oversec.one.crypto.ui.util.XCoderAndPadderSpinnerAdapter;
 import roboguice.util.Ln;
-
-import java.util.*;
 
 public class SimpleSymmetricEncryptionParamsFragment extends AbstractEncryptionParamsFragment implements OversecKeyCacheListener {
     private static final int RQ_ADD_ENCRYPTION_PASSWORD = 8000;
@@ -129,7 +134,7 @@ public class SimpleSymmetricEncryptionParamsFragment extends AbstractEncryptionP
         }
 
         mCbAddLink = (CheckBox) getMView().findViewById(R.id.cb_add_link);
-        mCbAddLink.setVisibility(getMIsForTextEncryption() ? View.VISIBLE : View.GONE);
+//        mCbAddLink.setVisibility(getMIsForTextEncryption() ? View.VISIBLE : View.GONE);
 
         mSpPaddingSym = (Spinner) getMView().findViewById(R.id.spinner_sym_padding);
         mSymPadderAdapter = new XCoderAndPadderSpinnerAdapter(getMView().getContext(), XCoderAndPadderFactory.Companion.getInstance(container.getContext()).getSym(getMPackageName()));

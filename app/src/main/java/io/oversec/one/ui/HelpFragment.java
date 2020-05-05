@@ -10,7 +10,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,23 +18,25 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Observable;
+import java.util.Observer;
 
-import io.oversec.one.*;
+import io.oversec.one.BuildConfig;
+import io.oversec.one.Core;
+import io.oversec.one.CrashActivity;
+import io.oversec.one.R;
+import io.oversec.one.Share;
+import io.oversec.one.Util;
 import io.oversec.one.acs.util.AndroidIntegration;
 import io.oversec.one.crypto.AppsReceiver;
-import io.oversec.one.crypto.LoggingConfig;
 import io.oversec.one.crypto.Help;
-
+import io.oversec.one.crypto.LoggingConfig;
 import io.oversec.one.crypto.gpg.OpenKeychainConnector;
 import io.oversec.one.crypto.ui.WithHelp;
 import io.oversec.one.crypto.ui.util.GotItPreferences;
 import io.oversec.one.iab.FullVersionListener;
 import io.oversec.one.iab.IabUtil;
 import roboguice.util.Ln;
-
-
-import java.util.Observable;
-import java.util.Observer;
 
 public class HelpFragment extends Fragment implements WithHelp, AppsReceiver.IAppsReceiverListener, FullVersionListener {
 
@@ -47,6 +48,8 @@ public class HelpFragment extends Fragment implements WithHelp, AppsReceiver.IAp
     private TextView mTvOkcStatus;
 
     private ViewGroup vgAcsOk;
+
+    private boolean usePGP = false;
 
     private Observer mAccessibilityServiceObserver = new Observer() {
         @Override
@@ -155,6 +158,7 @@ public class HelpFragment extends Fragment implements WithHelp, AppsReceiver.IAp
                 Help.INSTANCE.open(getActivity(), Help.ANCHOR.bossmode_active);
             }
         });
+        btReBossHelp.setVisibility(View.GONE);
 
         vgBoss = (ViewGroup) v.findViewById(R.id.settings_bossactive);
 
@@ -214,12 +218,13 @@ public class HelpFragment extends Fragment implements WithHelp, AppsReceiver.IAp
                 Help.INSTANCE.open(getActivity(), Help.ANCHOR.main_help_acsconfig);
             }
         });
+        v.findViewById(R.id.btn_enable_acs_moreinfo).setVisibility(View.GONE);
 
         mVgOkc = (ViewGroup) v.findViewById(R.id.settings_okc);
         mTvOkcStatus = (TextView) v.findViewById(R.id.okc_status);
         Button btInstallOkcFdroid = (Button) v.findViewById(R.id.btn_okc_fdroid);
 
-        btInstallOkcFdroid.setVisibility(BuildConfig.IS_FRDOID?View.VISIBLE:View.GONE);
+        btInstallOkcFdroid.setVisibility(BuildConfig.IS_FRDOID ? View.VISIBLE : View.GONE);
 
         btInstallOkcFdroid.setOnClickListener(new OnClickListener() {
 
@@ -247,6 +252,7 @@ public class HelpFragment extends Fragment implements WithHelp, AppsReceiver.IAp
                 Help.INSTANCE.open(getActivity(), Help.ANCHOR.encparams_pgp);
             }
         });
+        btOkcMoreInfo.setVisibility(View.GONE);
 
         adjustOkc();
 
@@ -306,23 +312,28 @@ public class HelpFragment extends Fragment implements WithHelp, AppsReceiver.IAp
     }
 
     private void adjustOkc() {
-        mVgOkc.setVisibility(View.VISIBLE);
 
-        if (!Util.isFeatureEnctypePGP(getActivity())) {
-            mVgOkc.setVisibility(View.GONE);
-            return;
-        }
+        if (usePGP) {
+            mVgOkc.setVisibility(View.VISIBLE);
 
-        int okcVersion = OpenKeychainConnector.Companion.getInstance(getActivity()).getVersion();
-        if (okcVersion >= OpenKeychainConnector.V_MIN) {
-            mVgOkc.setVisibility(View.GONE);
-        } else {
-
-            if (okcVersion == -1) {
-                mTvOkcStatus.setText(io.oversec.one.crypto.R.string.settings_okc_not_installed);
-            } else {
-                mTvOkcStatus.setText(getString(io.oversec.one.crypto.R.string.okc_installed_but_too_old, OpenKeychainConnector.Companion.getInstance(getActivity()).getVersionName()));
+            if (!Util.isFeatureEnctypePGP(getActivity())) {
+                mVgOkc.setVisibility(View.GONE);
+                return;
             }
+
+            int okcVersion = OpenKeychainConnector.Companion.getInstance(getActivity()).getVersion();
+            if (okcVersion >= OpenKeychainConnector.V_MIN) {
+                mVgOkc.setVisibility(View.GONE);
+            } else {
+
+                if (okcVersion == -1) {
+                    mTvOkcStatus.setText(io.oversec.one.crypto.R.string.settings_okc_not_installed);
+                } else {
+                    mTvOkcStatus.setText(getString(io.oversec.one.crypto.R.string.okc_installed_but_too_old, OpenKeychainConnector.Companion.getInstance(getActivity()).getVersionName()));
+                }
+            }
+        } else {
+            mVgOkc.setVisibility(View.GONE);
         }
     }
 
@@ -394,6 +405,9 @@ public class HelpFragment extends Fragment implements WithHelp, AppsReceiver.IAp
         } else {
             mVgUpgrade.setVisibility(View.GONE);
         }
+
+        // hardcoding mVgUpgrade visibility
+        mVgUpgrade.setVisibility(View.GONE);
     }
 
 

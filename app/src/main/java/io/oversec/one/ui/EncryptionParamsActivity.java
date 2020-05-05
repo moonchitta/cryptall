@@ -2,7 +2,6 @@ package io.oversec.one.ui;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
-
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
@@ -10,45 +9,33 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v13.app.FragmentPagerAdapter;
-
-
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-
 import android.support.v7.widget.Toolbar;
-
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-
 import io.oversec.one.Core;
 import io.oversec.one.R;
-
 import io.oversec.one.Share;
 import io.oversec.one.Util;
-import io.oversec.one.crypto.BaseDecryptResult;
 import io.oversec.one.crypto.AbstractEncryptionParams;
-
-
+import io.oversec.one.crypto.BaseDecryptResult;
 import io.oversec.one.crypto.CryptoHandlerFacade;
 import io.oversec.one.crypto.EncryptionMethod;
 import io.oversec.one.crypto.Help;
+import io.oversec.one.crypto.UserInteractionRequiredException;
 import io.oversec.one.crypto.gpg.OpenKeychainConnector;
 import io.oversec.one.crypto.sym.SymmetricCryptoHandler;
-import io.oversec.one.iab.IabUtil;
-import io.oversec.one.ui.encparams.SimpleSymmetricEncryptionParamsFragment;
 import io.oversec.one.crypto.ui.AbstractEncryptionParamsFragment;
-import io.oversec.one.crypto.ui.EncryptionParamsActivityContract;
-
-
-import io.oversec.one.ui.encparams.SymmetricEncryptionParamsFragment;
-
-import io.oversec.one.crypto.UserInteractionRequiredException;
 import io.oversec.one.crypto.ui.EncryptionInfoActivity;
+import io.oversec.one.crypto.ui.EncryptionParamsActivityContract;
 import io.oversec.one.crypto.ui.WithHelp;
 import io.oversec.one.ui.encparams.GpgEncryptionParamsFragment;
+import io.oversec.one.ui.encparams.SimpleSymmetricEncryptionParamsFragment;
+import io.oversec.one.ui.encparams.SymmetricEncryptionParamsFragment;
 import roboguice.util.Ln;
 
 public class EncryptionParamsActivity extends AppCompatActivity implements EncryptionParamsActivityContract, ViewPager.OnPageChangeListener {
@@ -419,27 +406,27 @@ public class EncryptionParamsActivity extends AppCompatActivity implements Encry
             if (position == 2 && frag2 == null) {
                 frag2 = frag0;
             }
-            switch (position) {
-                case 0:
-                    frag0.setToolTipPosition(15);
-                    return frag0;
-                case 1:
-                    frag1.setToolTipPosition(50);
-                    return frag1;
-                case 2:
-                    frag2.setToolTipPosition(85);
-                    return frag2;
-            }
-
-            return null;
+//            switch (position) {
+//                case 0:
+//                    frag0.setToolTipPosition(15);
+//                    return frag0;
+//                case 1:
+//                    frag1.setToolTipPosition(50);
+//                    return frag1;
+//                case 2:
+//                    frag2.setToolTipPosition(85);
+//                    return frag2;
+//            }
+            return mSymEncryptionParamsFragment;
         }
 
 
         @Override
         public int getCount() {
-            return 1 + //always have simple password
-                    (Util.isFeatureEnctypePGP(EncryptionParamsActivity.this) ? 1 : 0) +
-                    (Util.isFeatureEnctypeSYM(EncryptionParamsActivity.this) ? 1 : 0);
+//            return 1 + //always have simple password
+//                    (Util.isFeatureEnctypePGP(EncryptionParamsActivity.this) ? 1 : 0) +
+//                    (Util.isFeatureEnctypeSYM(EncryptionParamsActivity.this) ? 1 : 0);
+            return 1;
 
         }
 

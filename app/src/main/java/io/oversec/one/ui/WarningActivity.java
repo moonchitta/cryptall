@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import io.oversec.one.R;
 import io.oversec.one.crypto.Help;
 import io.oversec.one.crypto.ui.util.GotItPreferences;
@@ -87,6 +88,7 @@ public class WarningActivity extends Activity {
                 finish();
             }
         });
+        mBtCancel.setVisibility(View.GONE);
 
     }
 

@@ -3,7 +3,14 @@ package io.oversec.one.ovl;
 import android.content.Context;
 import android.graphics.Outline;
 import android.os.Build;
-import android.view.*;
+import android.view.ContextThemeWrapper;
+import android.view.Display;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -92,11 +99,12 @@ public abstract class AbstractOverlayDialogView extends AbstractOverlayTouchable
             mBtCancel.setVisibility(View.GONE);
         }
 
-        if (getNeutralText() != null) {
-            mBtNeutral.setText(getNeutralText());
-        } else {
-            mBtNeutral.setVisibility(View.GONE);
-        }
+        mBtNeutral.setVisibility(View.GONE);
+//        if (getNeutralText() != null) {
+//            mBtNeutral.setText(getNeutralText());
+//        } else {
+//
+//        }
 
         mBtOk.setOnClickListener(new OnClickListener() {
             @Override

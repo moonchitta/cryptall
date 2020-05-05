@@ -9,7 +9,6 @@ import com.kobakei.ratethisapp.RateThisApp;
 
 import io.oversec.one.crypto.AppsReceiver;
 import io.oversec.one.crypto.LoggingConfig;
-import io.oversec.one.crypto.gpg.OpenKeychainConnector;
 import io.oversec.one.iab.IabUtil;
 
 public class App extends MultiDexApplication {

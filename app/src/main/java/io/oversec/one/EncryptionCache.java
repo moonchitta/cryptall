@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.LruCache;
 
+import java.util.Map;
+
 import io.oversec.one.common.MainPreferences;
 import io.oversec.one.crypto.BaseDecryptResult;
 import io.oversec.one.crypto.CryptoHandlerFacade;
@@ -14,8 +16,6 @@ import io.oversec.one.crypto.gpg.OpenKeychainConnector;
 import io.oversec.one.crypto.proto.Outer;
 import io.oversec.one.ovl.NodeTextView;
 import roboguice.util.Ln;
-
-import java.util.Map;
 
 public class EncryptionCache {
 

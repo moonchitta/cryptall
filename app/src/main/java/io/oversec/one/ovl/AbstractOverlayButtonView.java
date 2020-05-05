@@ -9,10 +9,16 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-import android.view.*;
+import android.view.ContextThemeWrapper;
+import android.view.Display;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.AbsoluteLayout;
 import android.widget.ImageButton;
+
 import io.oversec.one.Core;
 import io.oversec.one.R;
 import io.oversec.one.db.Db;

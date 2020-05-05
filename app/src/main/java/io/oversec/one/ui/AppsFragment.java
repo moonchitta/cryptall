@@ -7,7 +7,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,19 +20,19 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import io.oversec.one.Core;
-import io.oversec.one.R;
-import io.oversec.one.crypto.AppsReceiver;
-import io.oversec.one.crypto.Help;
-import io.oversec.one.crypto.ui.WithHelp;
-import io.oversec.one.db.Db;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import io.oversec.one.Core;
+import io.oversec.one.R;
+import io.oversec.one.crypto.AppsReceiver;
+import io.oversec.one.crypto.Help;
+import io.oversec.one.crypto.ui.WithHelp;
+import io.oversec.one.db.Db;
 
 public class AppsFragment extends Fragment implements WithHelp, AppsReceiver.IAppsReceiverListener {
 

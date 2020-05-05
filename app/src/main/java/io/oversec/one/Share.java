@@ -3,8 +3,6 @@ package io.oversec.one;
 import android.content.Context;
 import android.content.Intent;
 
-import io.oversec.one.R;
-
 public class Share {
 
     public static void share(Context ctx) {

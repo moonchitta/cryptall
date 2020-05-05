@@ -4,7 +4,6 @@ package io.oversec.one.ui;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
@@ -18,7 +17,6 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import io.oversec.one.R;
-
 import roboguice.util.Ln;
 
 public class ColorSeekBar extends View {

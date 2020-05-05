@@ -16,14 +16,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import io.oversec.one.R;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
 import io.oversec.one.Core;
+import io.oversec.one.R;
 import io.oversec.one.Util;
 import io.oversec.one.crypto.ui.util.SimpleDividerItemDecoration;
 import io.oversec.one.db.Db;

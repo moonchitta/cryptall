@@ -6,7 +6,6 @@ import io.oversec.one.Core;
 import io.oversec.one.R;
 import io.oversec.one.db.Db;
 import io.oversec.one.iab.IabUtil;
-import roboguice.util.Ln;
 
 public class OverlayButtonUpgradeView extends AbstractOverlayButtonFreeView {
 

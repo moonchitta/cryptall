@@ -10,12 +10,16 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.protobuf.ByteString;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.GeneralSecurityException;
 
 import io.oversec.one.Core;
 import io.oversec.one.R;
@@ -35,12 +39,6 @@ import io.oversec.one.crypto.ui.util.ImageInfo;
 import io.oversec.one.crypto.ui.util.ImgUtil;
 import io.oversec.one.crypto.ui.util.Util;
 import roboguice.util.Ln;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.GeneralSecurityException;
-import java.util.Arrays;
 
 public class ImageEncryptActivity extends BaseActivity {
 

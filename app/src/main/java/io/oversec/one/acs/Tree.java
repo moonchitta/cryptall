@@ -8,6 +8,10 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import io.oversec.one.acs.util.AccessibilityNodeInfoUtils;
 import io.oversec.one.acs.util.SynchronizedPool;
 import io.oversec.one.crypto.CryptoHandlerFacade;
@@ -17,10 +21,6 @@ import io.oversec.one.iab.Base64;
 import io.oversec.one.iab.Base64DecoderException;
 import io.oversec.one.ovl.OverlayDecryptView;
 import roboguice.util.Ln;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Keeps the view tree (for performance reason, so that we do not have to query the whole tree through ACS every time something changes)

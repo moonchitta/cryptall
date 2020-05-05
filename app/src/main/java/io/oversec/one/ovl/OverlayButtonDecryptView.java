@@ -6,7 +6,6 @@ import android.support.v4.content.ContextCompat;
 import io.oversec.one.Core;
 import io.oversec.one.R;
 import io.oversec.one.crypto.BaseDecryptResult;
-
 import io.oversec.one.db.Db;
 
 public class OverlayButtonDecryptView extends AbstractOverlayButtonInputView {

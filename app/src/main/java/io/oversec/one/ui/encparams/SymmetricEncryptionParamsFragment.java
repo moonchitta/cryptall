@@ -17,7 +17,12 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+
 import io.oversec.one.Core;
+import io.oversec.one.R;
 import io.oversec.one.common.CoreContract;
 import io.oversec.one.crypto.AbstractEncryptionParams;
 import io.oversec.one.crypto.EncryptionMethod;
@@ -30,17 +35,12 @@ import io.oversec.one.crypto.sym.SymmetricKeyEncrypted;
 import io.oversec.one.crypto.sym.ui.KeyImportCreateActivity;
 import io.oversec.one.crypto.sym.ui.KeysFragment;
 import io.oversec.one.crypto.sym.ui.SymmetricKeyRecyclerViewAdapter;
-import io.oversec.one.crypto.ui.EncryptionParamsActivityContract;
-import io.oversec.one.R;
 import io.oversec.one.crypto.ui.AbstractEncryptionParamsFragment;
+import io.oversec.one.crypto.ui.EncryptionParamsActivityContract;
 import io.oversec.one.crypto.ui.util.SimpleDividerItemDecoration;
 import io.oversec.one.crypto.ui.util.StandaloneTooltipView;
 import io.oversec.one.crypto.ui.util.XCoderAndPadderSpinnerAdapter;
 import roboguice.util.Ln;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
 
 public class SymmetricEncryptionParamsFragment extends AbstractEncryptionParamsFragment implements OversecKeystore2.KeyStoreListener {
     private static final String EXTRA_PADDER_POS = "EXTRA_PADDER_POS";
@@ -84,7 +84,7 @@ public class SymmetricEncryptionParamsFragment extends AbstractEncryptionParamsF
         mTvWarning = (TextView) getMView().findViewById(R.id.compose_sym_warning);
 
         mCbAddLink = (CheckBox) getMView().findViewById(R.id.cb_add_link);
-        mCbAddLink.setVisibility(getMIsForTextEncryption() ? View.VISIBLE : View.GONE);
+//        mCbAddLink.setVisibility(getMIsForTextEncryption() ? View.VISIBLE : View.GONE);
 
         mFabSymmetric = (ImageButton) getMView().findViewById(R.id.fab_sym);
         mFabSymmetric.getBackground().setColorFilter(Core.getInstance(getActivity()).getDb().getButtonOverlayBgColor(getMPackageName()), PorterDuff.Mode.SRC_ATOP);
@@ -130,7 +130,11 @@ public class SymmetricEncryptionParamsFragment extends AbstractEncryptionParamsF
             @Override
             public void onClick(View v) {
 
-                KeyImportCreateActivity.Companion.showAddKeyDialog(SymmetricEncryptionParamsFragment.this, EncryptionParamsActivityContract.REQUEST_CODE__CREATE_NEW_KEY);
+//                KeyImportCreateActivity.Companion.showAddKeyDialog(SymmetricEncryptionParamsFragment.this, EncryptionParamsActivityContract.REQUEST_CODE__CREATE_NEW_KEY);
+                Intent i = new Intent();
+                i.setClass(getActivity(), KeyImportCreateActivity.class);
+                i.putExtra(KeyImportCreateActivity.EXTRA_MODE, KeyImportCreateActivity.CREATE_MODE_PASSPHRASE);
+                startActivityForResult(i, EncryptionParamsActivityContract.REQUEST_CODE__CREATE_NEW_KEY);
 
             }
         });

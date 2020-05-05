@@ -21,6 +21,12 @@ import android.view.accessibility.AccessibilityWindowInfo;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
 
+import java.lang.reflect.Field;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import io.oversec.one.Core;
 import io.oversec.one.EncryptionCache;
 import io.oversec.one.acs.util.AccessibilityNodeInfoUtils;
@@ -33,12 +39,6 @@ import io.oversec.one.db.Db;
 import io.oversec.one.db.IDecryptOverlayLayoutParamsChangedListener;
 import io.oversec.one.util.WrappedWindowManager;
 import roboguice.util.Ln;
-
-import java.lang.reflect.Field;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * NOTE:

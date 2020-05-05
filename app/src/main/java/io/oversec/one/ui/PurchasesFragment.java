@@ -9,12 +9,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import io.oversec.one.R;
-import io.oversec.one.iab.*;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import io.oversec.one.R;
+import io.oversec.one.iab.FullVersionListener;
+import io.oversec.one.iab.IabUtil;
+import io.oversec.one.iab.Inventory;
+import io.oversec.one.iab.Purchase;
+import io.oversec.one.iab.SkuDetails;
 
 public class PurchasesFragment extends Fragment {
     private Inventory mInventory;

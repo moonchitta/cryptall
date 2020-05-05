@@ -9,7 +9,6 @@ import android.widget.AbsoluteLayout;
 import io.oversec.one.Core;
 import io.oversec.one.acs.Tree;
 import io.oversec.one.crypto.CryptoHandlerFacade;
-
 import roboguice.util.Ln;
 
 public class NodeGroupLayout extends AbsoluteLayout implements NodeView {

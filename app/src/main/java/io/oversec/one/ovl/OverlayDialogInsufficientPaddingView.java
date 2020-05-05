@@ -38,8 +38,10 @@ public class OverlayDialogInsufficientPaddingView extends AbstractOverlayDialogV
 
     @Override
     String getNeutralText() {
-        return getResources().getString(R.string.action_moreinfo);
+//        return getResources().getString(R.string.action_moreinfo);
+        return null;
     }
+
 
     @Override
     void onOkPressed() {

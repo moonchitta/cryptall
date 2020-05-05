@@ -9,13 +9,10 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
-
 import android.support.v4.content.ContextCompat;
 
-import io.oversec.one.crypto.ui.util.GotItPreferences;
 import io.oversec.one.ui.ActionAccessibilitySettingsNotResolvableActivity;
 import io.oversec.one.ui.AppConfigActivity;
-import io.oversec.one.ui.OnboardingActivity;
 import roboguice.util.Ln;
 
 public class OversecIntentService extends IntentService {

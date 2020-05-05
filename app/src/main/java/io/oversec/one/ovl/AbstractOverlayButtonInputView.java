@@ -4,7 +4,6 @@ import android.graphics.Rect;
 import android.view.WindowManager;
 
 import io.oversec.one.Core;
-import roboguice.util.Ln;
 
 public abstract class AbstractOverlayButtonInputView extends AbstractOverlayButtonView {
 

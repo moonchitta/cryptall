@@ -12,16 +12,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
+import io.oversec.one.R;
 import io.oversec.one.common.CoreContract;
 import io.oversec.one.crypto.Help;
-import io.oversec.one.R;
 import io.oversec.one.crypto.encoding.pad.PadderContent;
-import io.oversec.one.crypto.ui.util.SimpleDividerItemDecoration;
-import io.oversec.one.db.PadderDb;
 import io.oversec.one.crypto.encoding.pad.XCoderAndPadderFactory;
 import io.oversec.one.crypto.ui.WithHelp;
-
-import java.util.List;
+import io.oversec.one.crypto.ui.util.SimpleDividerItemDecoration;
+import io.oversec.one.db.PadderDb;
 
 
 public class PadderFragment extends Fragment implements WithHelp {

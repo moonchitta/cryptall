@@ -26,6 +26,7 @@
         android:id="@+id/help"
         android:icon="@drawable/ic_help_outline_white_24dp"
         android:orderInCategory="100"
+        android:visible="false"
         android:title="@string/action_help"
         app:showAsAction="ifRoom" />
 

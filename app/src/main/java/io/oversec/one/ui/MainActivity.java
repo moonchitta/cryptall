@@ -15,7 +15,12 @@ import android.view.MenuItem;
 
 import com.kobakei.ratethisapp.RateThisApp;
 
-import io.oversec.one.*;
+import java.util.ArrayList;
+
+import io.oversec.one.Core;
+import io.oversec.one.R;
+import io.oversec.one.Share;
+import io.oversec.one.Util;
 import io.oversec.one.crypto.Help;
 import io.oversec.one.crypto.gpg.OpenKeychainConnector;
 import io.oversec.one.crypto.sym.ui.KeysFragment;
@@ -23,8 +28,6 @@ import io.oversec.one.crypto.ui.WithHelp;
 import io.oversec.one.crypto.ui.util.GotItPreferences;
 import io.oversec.one.iab.IabUtil;
 import roboguice.util.Ln;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -123,6 +126,9 @@ public class MainActivity extends AppCompatActivity {
             mTabs.add(TAB_KEYS);
         }
         mTabs.add(TAB_SETTINGS);
+        /**
+         * These changes have been made for new app
+         */
         mTabs.add(TAB_PADDER);
 
         super.onCreate(savedInstanceState);

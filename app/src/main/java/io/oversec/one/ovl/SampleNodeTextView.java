@@ -7,8 +7,8 @@ import android.util.TypedValue;
 import android.widget.TextView;
 
 import io.oversec.one.Core;
-import io.oversec.one.db.IDecryptOverlayLayoutParamsChangedListener;
 import io.oversec.one.db.Db;
+import io.oversec.one.db.IDecryptOverlayLayoutParamsChangedListener;
 
 public class SampleNodeTextView extends TextView implements IDecryptOverlayLayoutParamsChangedListener {
     private GradientDrawable mBgShape;

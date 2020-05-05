@@ -35,7 +35,8 @@ public class OverlayDialogCorruptedEncodingView extends AbstractOverlayDialogVie
 
     @Override
     String getNeutralText() {
-        return getResources().getString(R.string.action_moreinfo);
+//        return getResources().getString(R.string.action_moreinfo);
+        return null;
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.PixelFormat;
 import android.view.Gravity;
 import android.view.WindowManager;
+
 import io.oversec.one.Core;
 
 public abstract class AbstractOverlayTouchableView extends OverlayView {

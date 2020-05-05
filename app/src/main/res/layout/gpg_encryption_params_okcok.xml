@@ -208,6 +208,7 @@
             android:id="@+id/cb_add_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="@string/checkbox_add_oversec_link" />
     </LinearLayout>
 

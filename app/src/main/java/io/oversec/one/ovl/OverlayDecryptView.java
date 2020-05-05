@@ -11,12 +11,12 @@ import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 
 import io.oversec.one.Core;
-import io.oversec.one.common.MainPreferences;
 import io.oversec.one.R;
 import io.oversec.one.acs.DisplayNodeVisitor;
 import io.oversec.one.acs.Tree;
-import io.oversec.one.crypto.CryptoHandlerFacade;
+import io.oversec.one.common.MainPreferences;
 import io.oversec.one.crypto.BaseDecryptResult;
+import io.oversec.one.crypto.CryptoHandlerFacade;
 import io.oversec.one.db.IDecryptOverlayLayoutParamsChangedListener;
 
 public class OverlayDecryptView extends OverlayView implements

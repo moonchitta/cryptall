@@ -12,8 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-import io.oversec.one.common.CoreContract;
 import io.oversec.one.R;
+import io.oversec.one.common.CoreContract;
 import io.oversec.one.crypto.Help;
 import io.oversec.one.crypto.encoding.pad.PadderContent;
 import io.oversec.one.db.PadderDb;

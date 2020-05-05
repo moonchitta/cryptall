@@ -7,13 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import io.oversec.one.R;
-
 import org.markdown4j.Markdown4jProcessor;
 import org.sufficientlysecure.htmltextview.HtmlAssetsImageGetter;
 import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import java.io.IOException;
+
+import io.oversec.one.R;
 
 
 public class ChangelogFragment extends Fragment {

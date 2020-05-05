@@ -22,7 +22,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityNodeInfo;
 
-
 import java.util.Collection;
 import java.util.Comparator;
 

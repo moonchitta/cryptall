@@ -25,8 +25,14 @@ import android.widget.TextView;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
+import org.openintents.openpgp.util.OpenPgpApi;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import io.oversec.one.BuildConfig;
 import io.oversec.one.Core;
+import io.oversec.one.R;
 import io.oversec.one.common.CoreContract;
 import io.oversec.one.crypto.AbstractEncryptionParams;
 import io.oversec.one.crypto.AppsReceiver;
@@ -40,20 +46,12 @@ import io.oversec.one.crypto.gpg.GpgCryptoHandler;
 import io.oversec.one.crypto.gpg.GpgEncryptionParams;
 import io.oversec.one.crypto.gpg.OpenKeychainConnector;
 import io.oversec.one.crypto.sym.SymUtil;
-import io.oversec.one.crypto.ui.EncryptionParamsActivityContract;
-import io.oversec.one.R;
 import io.oversec.one.crypto.ui.AbstractEncryptionParamsFragment;
+import io.oversec.one.crypto.ui.EncryptionParamsActivityContract;
 import io.oversec.one.crypto.ui.util.GotItPreferences;
 import io.oversec.one.crypto.ui.util.StandaloneTooltipView;
 import io.oversec.one.crypto.ui.util.XCoderAndPadderSpinnerAdapter;
-
-
-import org.openintents.openpgp.util.OpenPgpApi;
-
 import roboguice.util.Ln;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class GpgEncryptionParamsFragment extends AbstractEncryptionParamsFragment implements AppsReceiver.IAppsReceiverListener {
     private static final String EXTRA_PUBLIC_KEYS = "EXTRA_PUBLIC_KEYS";
@@ -162,7 +160,7 @@ public class GpgEncryptionParamsFragment extends AbstractEncryptionParamsFragmen
                             .title(R.string.warning)
                             .content(R.string.warning_pgp_messages_are_big)
                             .positiveText(R.string.action_gotit)
-                            .neutralText(R.string.action_moreinfo)
+//                            .neutralText(R.string.action_moreinfo)
                             .negativeText(R.string.action_cancel)
                             .cancelListener(new DialogInterface.OnCancelListener() {
                                 @Override
@@ -227,7 +225,7 @@ public class GpgEncryptionParamsFragment extends AbstractEncryptionParamsFragmen
         updatePgpRecipientsList();
 
         mCbAddLink = (CheckBox) getMView().findViewById(R.id.cb_add_link);
-        mCbAddLink.setVisibility(getMIsForTextEncryption() ? View.VISIBLE : View.GONE);
+//        mCbAddLink.setVisibility(getMIsForTextEncryption() ? View.VISIBLE : View.GONE);
         mSpPaddingPgp = (Spinner) getMView().findViewById(R.id.spinner_pgp_padding);
         mGpgXcoderAndPadderAdapter = new XCoderAndPadderSpinnerAdapter(getMView().getContext(), XCoderAndPadderFactory.Companion.getInstance(container.getContext()).getGpg(getMPackageName()));
         mSpPaddingPgp.setAdapter(mGpgXcoderAndPadderAdapter);

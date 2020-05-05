@@ -13,7 +13,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
 import android.view.ContextThemeWrapper;
 import android.view.View;
@@ -24,14 +23,12 @@ import android.widget.ListView;
 import android.widget.SeekBar;
 
 import io.oversec.one.Core;
-import io.oversec.one.Util;
+import io.oversec.one.R;
 import io.oversec.one.db.Db;
 import io.oversec.one.db.IDecryptOverlayLayoutParamsChangedListener;
 import io.oversec.one.iab.FullVersionListener;
 import io.oversec.one.iab.IabUtil;
 import io.oversec.one.ovl.SampleNodeTextView;
-
-import io.oversec.one.R;
 
 public class AppConfigView extends ViewPager {
 
@@ -506,7 +503,7 @@ public class AppConfigView extends ViewPager {
     }
 
     public void updateVisibilities() {
-        setFullVersion(false);
+        setFullVersion(true);
         IabUtil.getInstance(getContext()).checkFullVersion(new FullVersionListener() {
             @Override
             public void onFullVersion_MAIN_THREAD(final boolean isFullVersion) {

@@ -2,15 +2,15 @@ package io.oversec.one.db;
 
 import android.content.Context;
 
-import io.oversec.one.crypto.R;
-import io.oversec.one.crypto.encoding.pad.PadderContent;
-
 import net.rehacktive.waspdb.WaspDb;
 import net.rehacktive.waspdb.WaspFactory;
 import net.rehacktive.waspdb.WaspHash;
 
 import java.util.Collections;
 import java.util.List;
+
+import io.oversec.one.crypto.R;
+import io.oversec.one.crypto.encoding.pad.PadderContent;
 
 public class PadderDb {
     private static final String DATABASE_NAME = "padder4";

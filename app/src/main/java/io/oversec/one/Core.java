@@ -5,16 +5,33 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.Notification;
 import android.app.NotificationManager;
-import android.content.*;
+import android.content.BroadcastReceiver;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
-import android.os.*;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import android.os.SystemClock;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.accessibility.AccessibilityNodeInfo;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Observable;
+import java.util.Stack;
 
 import io.oversec.one.acs.OversecAccessibilityService;
 import io.oversec.one.acs.Tree;
@@ -22,7 +39,12 @@ import io.oversec.one.acs.util.AccessibilityNodeInfoUtils;
 import io.oversec.one.common.Consts;
 import io.oversec.one.common.CoreContract;
 import io.oversec.one.common.MainPreferences;
-import io.oversec.one.crypto.*;
+import io.oversec.one.crypto.AbstractEncryptionParams;
+import io.oversec.one.crypto.BaseDecryptResult;
+import io.oversec.one.crypto.CryptoHandlerFacade;
+import io.oversec.one.crypto.Help;
+import io.oversec.one.crypto.Issues;
+import io.oversec.one.crypto.UserInteractionRequiredException;
 import io.oversec.one.crypto.encoding.XCoderFactory;
 import io.oversec.one.crypto.encoding.pad.PadderContent;
 import io.oversec.one.crypto.gpg.OpenKeychainConnector;
@@ -38,11 +60,14 @@ import io.oversec.one.db.PadderDb;
 import io.oversec.one.iab.IabUtil;
 import io.oversec.one.ovl.NodeTextView;
 import io.oversec.one.ovl.OverlayDialogToast;
-import io.oversec.one.ui.*;
+import io.oversec.one.ui.AppConfigActivity;
+import io.oversec.one.ui.ComposeActivity;
+import io.oversec.one.ui.EncryptionParamsActivity;
+import io.oversec.one.ui.IgnoreTextDialogActivity;
+import io.oversec.one.ui.Overlays;
+import io.oversec.one.ui.PendingIntentFiringBlankActivity;
+import io.oversec.one.ui.TakePhotoActivity;
 import roboguice.util.Ln;
-
-import java.io.UnsupportedEncodingException;
-import java.util.*;
 
 public class Core extends CoreContract implements Handler.Callback {
     public static final boolean CHECK_THREADS = BuildConfig.DEBUG;

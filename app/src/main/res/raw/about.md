@@ -1,9 +1,3 @@
-[Oversec-Website](https://www.oversec.io)
-
-**[Privacy Policy](https://www.oversec.io/policy.html)**
-
-[Oversec Open-Source Repository](https://github.com/oversecio/oversec)
-
 ## Libraries
   * [Android Support Libraries](http://developer.android.com/tools/support-library/index.html) (Apache License v2)
   * [HtmlTextView](https://github.com/sufficientlysecure/html-textview) (Apache License v2)

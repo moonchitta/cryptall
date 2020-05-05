@@ -8,9 +8,9 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 
-import io.oversec.one.ui.MainActivity;
-
 import java.util.List;
+
+import io.oversec.one.ui.MainActivity;
 
 public class Util {
 

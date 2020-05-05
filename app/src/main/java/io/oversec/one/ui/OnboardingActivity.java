@@ -9,14 +9,13 @@ import android.provider.Settings;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
-
 import android.widget.TextView;
-import io.oversec.one.R;
 
 import java.util.Observable;
 import java.util.Observer;
 
 import io.oversec.one.Core;
+import io.oversec.one.R;
 import io.oversec.one.acs.util.AndroidIntegration;
 import io.oversec.one.crypto.Help;
 import io.oversec.one.crypto.ui.util.GotItPreferences;
@@ -65,6 +64,7 @@ public class OnboardingActivity extends Activity {
 
             }
         });
+        btMoreInfo.setVisibility(View.GONE);
 
         TextView tv = (TextView)findViewById(android.R.id.text1);
         tv.setText(Html.fromHtml(getString(R.string.onboarding_text)));

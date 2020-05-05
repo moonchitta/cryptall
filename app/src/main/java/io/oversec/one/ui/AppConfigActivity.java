@@ -16,7 +16,11 @@ import android.widget.Button;
 
 import com.kobakei.ratethisapp.RateThisApp;
 
-import io.oversec.one.*;
+import io.oversec.one.Core;
+import io.oversec.one.CrashActivity;
+import io.oversec.one.R;
+import io.oversec.one.Share;
+import io.oversec.one.Util;
 import io.oversec.one.crypto.Help;
 import io.oversec.one.iab.IabUtil;
 
@@ -140,7 +144,7 @@ public class AppConfigActivity extends AppCompatActivity {
             mTv.setCurrentItem(pos);
         }
 
-        btApphelp.setVisibility(Util.isOversec(this) ? View.VISIBLE : View.GONE);
+//        btApphelp.setVisibility(Util.isOversec(this) ? View.VISIBLE : View.GONE);
     }
 
     @Override

@@ -15,7 +15,6 @@ import android.support.annotation.NonNull;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -196,72 +195,82 @@ public class IabUtil extends BroadcastReceiver implements IabHelper.OnIabSetupFi
     }
 
     public synchronized void checkFullVersion(final boolean loadSkuDetails, final FullVersionListener callback) {
-        if (!isIabAvailable() || BuildConfig.DEBUG) {
-            Ln.d("IAB, queryInventory impossible no IAB support!");
-            if (callback != null) {
-                invokeCallback(callback, true);
+//        if(BuildConfig.APPLICATION_ID.equals("io.cryptall.one")) { // its always true, just not breaking other functionality
 
-            } else {
-                fireChange(false);
-            }
-            return;
+        if (callback != null) {
+            invokeCallback(callback, true);
+        } else {
+            fireChange(true);
         }
-
-        mIabHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    mIabHelper.queryInventoryAsync(loadSkuDetails, SKUS_FULL_VERSION, new IabHelper.QueryInventoryFinishedListener() {
-                        @Override
-                        public void onQueryInventoryFinished(IabResult result, Inventory inv) {
-                            if (result.isSuccess()) {
-                                boolean fullVersion = false;
-                                for (String sku : SKUS_FULL_VERSION) {
-                                    Purchase p = inv.getPurchase(sku);
-                                    // 0 (purchased), 1 (canceled), or 2 (refunded).
-                                    if (p != null && p.getPurchaseState() == 0) {
-                                        fullVersion = true;
-                                        break;
-                                    }
-                                }
-                                Ln.d("IAB, onQueryInventoryFinished, fullVersion=%s", fullVersion);
-                                mInventory = inv;
-                                if (callback != null) {
-                                    invokeCallback(callback, fullVersion);
-                                } else {
-                                    fireChange(fullVersion);
-                                }
-                            } else {
-                                Ln.d("IAB, queryInventory failed: %s ", result.getMessage());
-                                if (callback != null) {
-                                    invokeCallback(callback, false);
-                                } else {
-                                    fireChange(false);
-                                }
-                            }
-                            processPendingAsyncRequests();
-                        }
-                    });
-                } catch (IllegalStateException ex) {
-                    Ln.e(ex, "exception in checkFullVersion");
-                    if (ex.getMessage().contains("because another async operation") || ex.getMessage().contains("IAB helper is not set up")) {
-                        addPendingAsyncRequest(new Runnable() {
-                            @Override
-                            public void run() {
-                                checkFullVersion(loadSkuDetails, callback);
-                            }
-                        });
-                    } else {
-                        if (callback != null) {
-                            invokeCallback(callback, false);
-                        } else {
-                            fireChange(false);
-                        }
-                    }
-                }
-
-            }
-        });
+//        }
+//        else {
+//            if (!isIabAvailable() || BuildConfig.DEBUG) {
+//                Ln.d("IAB, queryInventory impossible no IAB support!");
+//                if (callback != null) {
+//                    invokeCallback(callback, true);
+//
+//                } else {
+//                    fireChange(false);
+//                }
+//                return;
+//            }
+//
+//            mIabHandler.post(new Runnable() {
+//                @Override
+//                public void run() {
+//                    try {
+//                        mIabHelper.queryInventoryAsync(loadSkuDetails, SKUS_FULL_VERSION, new IabHelper.QueryInventoryFinishedListener() {
+//                            @Override
+//                            public void onQueryInventoryFinished(IabResult result, Inventory inv) {
+//                                if (result.isSuccess()) {
+//                                    boolean fullVersion = false;
+//                                    for (String sku : SKUS_FULL_VERSION) {
+//                                        Purchase p = inv.getPurchase(sku);
+//                                        // 0 (purchased), 1 (canceled), or 2 (refunded).
+//                                        if (p != null && p.getPurchaseState() == 0) {
+//                                            fullVersion = true;
+//                                            break;
+//                                        }
+//                                    }
+//                                    Ln.d("IAB, onQueryInventoryFinished, fullVersion=%s", fullVersion);
+//                                    mInventory = inv;
+//                                    if (callback != null) {
+//                                        invokeCallback(callback, fullVersion);
+//                                    } else {
+//                                        fireChange(fullVersion);
+//                                    }
+//                                } else {
+//                                    Ln.d("IAB, queryInventory failed: %s ", result.getMessage());
+//                                    if (callback != null) {
+//                                        invokeCallback(callback, false);
+//                                    } else {
+//                                        fireChange(false);
+//                                    }
+//                                }
+//                                processPendingAsyncRequests();
+//                            }
+//                        });
+//                    } catch (IllegalStateException ex) {
+//                        Ln.e(ex, "exception in checkFullVersion");
+//                        if (ex.getMessage().contains("because another async operation") || ex.getMessage().contains("IAB helper is not set up")) {
+//                            addPendingAsyncRequest(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    checkFullVersion(loadSkuDetails, callback);
+//                                }
+//                            });
+//                        } else {
+//                            if (callback != null) {
+//                                invokeCallback(callback, false);
+//                            } else {
+//                                fireChange(false);
+//                            }
+//                        }
+//                    }
+//
+//                }
+//            });
+//        }
     }
 
     private void invokeCallback(final FullVersionListener callback, final boolean isFullVersion) {
@@ -338,7 +347,7 @@ public class IabUtil extends BroadcastReceiver implements IabHelper.OnIabSetupFi
 
 
     public boolean isShowUpgradeButton(Context ctx) {
-        if (!isIabAvailable()||BuildConfig.DEBUG) {
+        if (!isIabAvailable() || BuildConfig.DEBUG) {
             return false;
         }
 

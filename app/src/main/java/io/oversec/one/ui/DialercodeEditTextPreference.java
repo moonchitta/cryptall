@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 
 import io.oversec.one.R;
 
-
 import static io.oversec.one.ui.MainSettingsFragment.MIN_SECRETCODE_LENGTH;
 
 public class DialercodeEditTextPreference extends ValidatedEditTextPreference {

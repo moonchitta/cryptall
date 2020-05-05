@@ -20,7 +20,6 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
 
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;

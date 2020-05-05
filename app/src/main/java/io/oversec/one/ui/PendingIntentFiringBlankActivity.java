@@ -6,12 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.os.Bundle;
-import android.util.Log;
 
 import io.oversec.one.Core;
-
 import io.oversec.one.acs.OversecAccessibilityService;
-import roboguice.util.Ln;
 
 public class PendingIntentFiringBlankActivity extends Activity {
     private static final String EXTRA_PENDING_INTENT = "pending_intent";

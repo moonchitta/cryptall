@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--
+    <string name="share_body">Cryptall:\nEnviar mensajes secretos con .\n\n</string>
+
+    <string name="decrypt_error_user_interaction_required">Se requiere Contraseña</string>
+    <string name="decrypt_error_user_interaction_required__long">¡Se requiere una Contraseña para descifrar!</string>
+    <string name="iab_body">Actualizar Cryptall apoya el desarrollo continuo de la aplicación y hace posible que esas características adicionales:\n\n* Personalización de los colores\n* Contenido para los señuelos personalizado\n* Contraseñas ilimitadas.</string>
+    <string name="tooltip_hidebutton_nothidden">Pulsa este botón para ocultar temporalmente la superposición de Cryptall.\n\Manténlo presionado para salir por completo de Cryptall y borrar todas los señuelos. (¡Botón de pánico!)</string>
+-->
+</resources>

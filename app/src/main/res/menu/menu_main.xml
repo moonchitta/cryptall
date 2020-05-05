@@ -15,18 +15,17 @@
         android:id="@+id/help"
         android:icon="@drawable/ic_help_outline_white_24dp"
         android:orderInCategory="100"
+        android:visible="false"
         android:title="@string/action_help"
         app:showAsAction="always" />
     <item
         android:id="@+id/about"
-
         android:orderInCategory="200"
         android:title="@string/action_about"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_clear_ignored_stuff"
-
         android:orderInCategory="300"
         android:title="@string/action_clear_ignored_keys"
         app:showAsAction="never" />

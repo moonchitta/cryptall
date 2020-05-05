@@ -72,7 +72,8 @@ public class OverlayDialogTooltip extends AbstractOverlayDialogView {
 
     @Override
     String getCancelText() {
-        return mCancelText != null ? mCancelText : getContext().getString(R.string.action_moreinfo);
+//        return mCancelText != null ? mCancelText : getContext().getString(R.string.action_moreinfo);
+        return mCancelText;
     }
 
     @Override

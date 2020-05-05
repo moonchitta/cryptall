@@ -13,8 +13,8 @@ import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 
 import io.oversec.one.Core;
-import io.oversec.one.common.MainPreferences;
 import io.oversec.one.R;
+import io.oversec.one.common.MainPreferences;
 import io.oversec.one.crypto.BaseDecryptResult;
 import io.oversec.one.crypto.CryptoHandlerFacade;
 import io.oversec.one.crypto.encoding.pad.AbstractPadder;

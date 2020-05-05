@@ -13,9 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-import io.oversec.one.BuildConfig;
-import io.oversec.one.R;
-
 import io.oversec.one.crypto.gpg.OpenKeychainConnector;
 
 public class CrashActivity extends AppCompatActivity {

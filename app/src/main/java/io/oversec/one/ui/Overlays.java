@@ -5,6 +5,12 @@ import android.content.pm.PackageManager;
 import android.view.View;
 import android.view.WindowManager;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import io.oversec.one.Core;
 import io.oversec.one.R;
 import io.oversec.one.Util;
@@ -16,10 +22,28 @@ import io.oversec.one.crypto.Issues;
 import io.oversec.one.crypto.ui.util.GotItPreferences;
 import io.oversec.one.db.IDecryptOverlayLayoutParamsChangedListener;
 import io.oversec.one.iab.IabUtil;
-import io.oversec.one.ovl.*;
+import io.oversec.one.ovl.NodeTextView;
+import io.oversec.one.ovl.OverlayButtonCameraView;
+import io.oversec.one.ovl.OverlayButtonComposeView;
+import io.oversec.one.ovl.OverlayButtonConfigView;
+import io.oversec.one.ovl.OverlayButtonDecryptView;
+import io.oversec.one.ovl.OverlayButtonEncryptView;
+import io.oversec.one.ovl.OverlayButtonHideView;
+import io.oversec.one.ovl.OverlayButtonInfomodeView;
+import io.oversec.one.ovl.OverlayButtonUpgradeView;
+import io.oversec.one.ovl.OverlayDecryptView;
+import io.oversec.one.ovl.OverlayDialogCorruptedEncodingView;
+import io.oversec.one.ovl.OverlayDialogInsufficientPaddingView;
+import io.oversec.one.ovl.OverlayDialogToast;
+import io.oversec.one.ovl.OverlayDialogTooltip;
+import io.oversec.one.ovl.OverlayDialogUpgrade;
+import io.oversec.one.ovl.OverlayDialogUserInteractionRequired;
+import io.oversec.one.ovl.OverlayEditTextBorderView;
+import io.oversec.one.ovl.OverlayInfoButtonView;
+import io.oversec.one.ovl.OverlayOutsideTouchView;
+import io.oversec.one.ovl.OverlayView;
 import io.oversec.one.util.WrappedWindowManager;
 import roboguice.util.Ln;
-import java.util.*;
 
 public class Overlays implements IDecryptOverlayLayoutParamsChangedListener {
     private final WrappedWindowManager mWm;

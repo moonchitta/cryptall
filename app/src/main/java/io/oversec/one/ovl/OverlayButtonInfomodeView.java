@@ -3,9 +3,8 @@ package io.oversec.one.ovl;
 import android.support.v4.content.ContextCompat;
 
 import io.oversec.one.Core;
-import io.oversec.one.db.Db;
-
 import io.oversec.one.R;
+import io.oversec.one.db.Db;
 
 public class OverlayButtonInfomodeView extends AbstractOverlayButtonFreeView {
 

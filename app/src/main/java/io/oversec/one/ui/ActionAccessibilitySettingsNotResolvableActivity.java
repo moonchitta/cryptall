@@ -8,15 +8,10 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
-import io.oversec.one.Core;
-import io.oversec.one.R;
-import io.oversec.one.acs.util.AndroidIntegration;
-import io.oversec.one.crypto.Help;
-import io.oversec.one.crypto.ui.util.GotItPreferences;
-import roboguice.util.Ln;
 
-import java.util.Observable;
-import java.util.Observer;
+import io.oversec.one.R;
+import io.oversec.one.crypto.Help;
+import roboguice.util.Ln;
 
 public class ActionAccessibilitySettingsNotResolvableActivity extends Activity {
 
@@ -68,5 +63,6 @@ public class ActionAccessibilitySettingsNotResolvableActivity extends Activity {
 
             }
         });
+        btMoreInfo.setVisibility(View.GONE);
     }
 }

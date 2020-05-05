@@ -13,6 +13,12 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.util.LruCache;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 import io.oversec.one.BuildConfig;
 import io.oversec.one.Core;
 import io.oversec.one.R;
@@ -24,8 +30,6 @@ import io.oversec.one.crypto.encoding.ZeroWidthXCoder;
 import io.oversec.one.ovl.AbstractOverlayButtonInputView;
 import io.oversec.one.ui.WarningActivity;
 import roboguice.util.Ln;
-
-import java.util.*;
 
 public final class Db {
     private static final String COL_TIMESTAMP = "tts";
